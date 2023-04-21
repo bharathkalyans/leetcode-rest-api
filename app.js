@@ -1,23 +1,38 @@
+import { ApolloServer } from "@apollo/server";
+import { expressMiddleware } from "@apollo/server/express4";
+import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHttpServer";
+import express from "express";
+import http from "http";
+import cors from "cors";
 import dotenv from "dotenv";
+import { users } from "./FakeData.js";
+import bodyParser from "body-parser";
+
 dotenv.config();
 
-import express, { json } from "express";
-import cors from 'cors';
-import { users } from "./FakeData.js";
-
 const app = express();
-const port = process.env.PORT || 3003;
+const PORT = process.env.PORT || 4002;
 
-app.use(json(), cors());
+const httpServer = http.createServer(app);
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
 });
 
-app.get("/users", (req, res) => {
-  res.send(users);
-});
+await server.start();
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});
+app.get(
+  "/graphql",
+  cors(),
+  bodyParser.json(),
+  expressMiddleware(server, {
+    context: async ({ req }) => ({ token: req.headers.token }),
+  })
+);
+
+// Modified server startup
+await new Promise((resolve) => httpServer.listen({ port: PORT }, resolve));
+
+console.log(`🚀 Server ready at http://localhost:${PORT}/`);
