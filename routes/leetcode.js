@@ -3,44 +3,78 @@ export const router = express.Router();
 
 const URL = "https://leetcode.com/graphql";
 
-router.post("/", async (req, res) => {
+//Histogram
+router.post("/histogram", async (req, res) => {
   const query = `
-query userPublicProfile($username: String!) {
-    matchedUser(username: $username) {
-        username
-        githubUrl
-        twitterUrl
-        linkedinUrl
-        profile {
-            ranking
-            userAvatar
-            realName
-            aboutMe
-            school
-            websites
-            countryName
-            company
-            jobTitle
-            skillTags
-            postViewCount
-            postViewCountDiff
-            reputation
-            reputationDiff
-            solutionCount
-            solutionCountDiff
-            categoryDiscussCount
-            categoryDiscussCountDiff
+    query contestRatingHistogram {
+        contestRatingHistogram {
+          userCount
+          ratingStart
+          ratingEnd
+          topPercentage
         }
-        languageProblemCount {
-          languageName
-          problemsSolved
-        }
-    }
-}
-`;
+      }
+  `;
 
   const variables = {
     username: req.body.username,
+    limit: req.body.limit,
+  };
+
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      query,
+      variables,
+    }),
+  };
+
+  try {
+    const response = await fetch(URL, options);
+    const data = await response.json();
+    // console.log(data);
+    res.send(data);
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+//Question of the Day
+router.post("/todaysquestion", async (req, res) => {
+  const query = `
+  query questionOfToday {
+    activeDailyCodingChallengeQuestion {
+      date
+      userStatus
+      link
+      question {
+        acRate
+        difficulty
+        freqBar
+        frontendQuestionId: questionFrontendId
+        isFavor
+        paidOnly: isPaidOnly
+        status
+        title
+        titleSlug
+        hasVideoSolution
+        hasSolution
+        topicTags {
+          name
+          id
+          slug
+        }
+      }
+    }
+  }
+  `;
+
+  const variables = {
+    username: req.body.username,
+    limit: req.body.limit,
   };
 
   const options = {

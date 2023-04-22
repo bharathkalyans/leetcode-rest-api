@@ -1,5 +1,5 @@
 
-//about
+//about ✅
 
  query userPublicProfile($username: String!) {
   matchedUser(username: $username) {
@@ -38,7 +38,7 @@
 
 
 
-//langauges
+//langauges ✅
 query languageStats($username: String!) {
   matchedUser(username: $username) {
     languageProblemCount {
