@@ -1,37 +1,18 @@
-import { ApolloServer } from "@apollo/server";
-import { expressMiddleware } from "@apollo/server/express4";
-import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHttpServer";
 import express from "express";
-import http from "http";
 import cors from "cors";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
+import router from "./routes/leetcode.js";
 
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-const httpServer = http.createServer(app);
+app.use(cors(), bodyParser.json());
 
-const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-  plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
+app.use("/graphql", router);
+
+app.listen(PORT, () => {
+  console.log(`🚀 Server is started at PORT : ${PORT}`);
 });
-
-await server.start();
-
-app.get(
-  "/graphql",
-  cors(),
-  bodyParser.json(),
-  expressMiddleware(server, {
-    context: async ({ req }) => ({ token: req.headers.token }),
-  })
-);
-
-// Modified server startup
-await new Promise((resolve) => httpServer.listen({ port: PORT }, resolve));
-
-console.log(`🚀 Server ready at http://localhost:${PORT}/`);
