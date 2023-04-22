@@ -49,7 +49,7 @@ Following are the End points to be used locally only!! (Check above for the live
     - POST ``http://localhost:4000/user/activeyears``  
     - POST ``http://localhost:4000/user/submissions``  
 - Leetcode
-    - POST ``http://localhost:4000/leetcodetodaysquestion``  
-    - POST ``http://localhost:4000/leetcodehistogram``  
+    - POST ``http://localhost:4000/leetcode/todaysquestion``  
+    - POST ``http://localhost:4000/leetcode/histogram``  
 
 All are POST requests ❗️
