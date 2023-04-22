@@ -1,44 +1,19 @@
 import express from "express";
 import fetchGraphQLData from "../utils/utility.js";
+import {
+  userProfileQuery,
+  userRatingQuery,
+  problemsSolvedQuery,
+  userBadgesQuery,
+  activeYearsQuery,
+  recentSubmissionsQuery,
+} from "../queries/userGraphqlQueries.js";
 
 export const router = express.Router();
 
 // User Profile
 router.post("/", async (req, res) => {
-  const query = `
-query userPublicProfile($username: String!) {
-    matchedUser(username: $username) {
-        username
-        githubUrl
-        twitterUrl
-        linkedinUrl
-        profile {
-            ranking
-            userAvatar
-            realName
-            aboutMe
-            school
-            websites
-            countryName
-            company
-            jobTitle
-            skillTags
-            postViewCount
-            postViewCountDiff
-            reputation
-            reputationDiff
-            solutionCount
-            solutionCountDiff
-            categoryDiscussCount
-            categoryDiscussCountDiff
-        }
-        languageProblemCount {
-          languageName
-          problemsSolved
-        }
-    }
-}
-`;
+  const query = userProfileQuery;
 
   const variables = {
     username: req.body.username,
@@ -50,33 +25,7 @@ query userPublicProfile($username: String!) {
 
 //User Contest Rating
 router.post("/contests", async (req, res) => {
-  const query = `
-  query userContestRankingInfo($username: String!) {
-    userContestRanking(username: $username) {
-      attendedContestsCount
-      rating
-      globalRanking
-      totalParticipants
-      topPercentage
-      badge {
-        name
-      }
-    }
-    userContestRankingHistory(username: $username) {
-      attended
-      trendDirection
-      problemsSolved
-      totalProblems
-      finishTimeInSeconds
-      rating
-      ranking
-      contest {
-        title
-        startTime
-      }
-    }
-  }
-`;
+  const query = userRatingQuery;
 
   const variables = {
     username: req.body.username,
@@ -88,26 +37,7 @@ router.post("/contests", async (req, res) => {
 
 //Problems Solved
 router.post("/solved", async (req, res) => {
-  const query = `
-  query userProblemsSolved($username: String!) {
-    allQuestionsCount {
-      difficulty
-      count
-    }
-    matchedUser(username: $username) {
-      problemsSolvedBeatsStats {
-        difficulty
-        percentage
-      }
-      submitStatsGlobal {
-        acSubmissionNum {
-          difficulty
-          count
-        }
-      }
-    }
-  }
-`;
+  const query = problemsSolvedQuery;
 
   const variables = {
     username: req.body.username,
@@ -119,34 +49,7 @@ router.post("/solved", async (req, res) => {
 
 //Badges
 router.post("/badges", async (req, res) => {
-  const query = `
-  query userBadges($username: String!) {
-    matchedUser(username: $username) {
-      badges {
-        id
-        name
-        shortName
-        displayName
-        icon
-        hoverText
-        medal {
-          slug
-          config {
-            iconGif
-            iconGifBackground
-          }
-        }
-        creationDate
-        category
-      }
-      upcomingBadges {
-        name
-        icon
-        progress
-      }
-    }
-  }
-`;
+  const query = userBadgesQuery;
 
   const variables = {
     username: req.body.username,
@@ -158,25 +61,7 @@ router.post("/badges", async (req, res) => {
 
 //Active Years
 router.post("/activeyears", async (req, res) => {
-  const query = `
-  query userProfileCalendar($username: String!, $year: Int) {
-    matchedUser(username: $username) {
-      userCalendar(year: $year) {
-        activeYears
-        streak
-        totalActiveDays
-        dccBadges {
-          timestamp
-          badge {
-            name
-            icon
-          }
-        }
-        submissionCalendar
-      }
-    }
-  }
-`;
+  const query = activeYearsQuery;
 
   const variables = {
     username: req.body.username,
@@ -188,16 +73,7 @@ router.post("/activeyears", async (req, res) => {
 
 //Recent Submissions
 router.post("/submissions", async (req, res) => {
-  const query = `
-  query recentAcSubmissions($username: String!, $limit: Int!) {
-    recentAcSubmissionList(username: $username, limit: $limit) {
-      id
-      title
-      titleSlug
-      timestamp
-    }
-  }
-`;
+  const query = recentSubmissionsQuery;
 
   const variables = {
     username: req.body.username,

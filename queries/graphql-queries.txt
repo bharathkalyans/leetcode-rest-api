@@ -107,7 +107,7 @@ query userContestRankingInfo($username: String!) {
 
 
 
-//User Problems Solved
+//User Problems Solved ✅
 query userProblemsSolved($username: String!) {
   allQuestionsCount {
     difficulty
@@ -128,7 +128,7 @@ query userProblemsSolved($username: String!) {
 }
 
 
-//User Badges
+//User Badges ✅
 query userBadges($username: String!) {
   matchedUser(username: $username) {
     badges {
@@ -157,7 +157,7 @@ query userBadges($username: String!) {
 }
 
 
-//User Profile Calendar
+//User Profile Calendar ✅
 query userProfileCalendar($username: String!, $year: Int) {
   matchedUser(username: $username) {
     userCalendar(year: $year) {
@@ -177,7 +177,7 @@ query userProfileCalendar($username: String!, $year: Int) {
 }
 
 
-//Recent AC Submissions
+//Recent AC Submissions ✅
 query recentAcSubmissions($username: String!, $limit: Int!) {
   recentAcSubmissionList(username: $username, limit: $limit) {
     id
@@ -194,7 +194,7 @@ query recentAcSubmissions($username: String!, $limit: Int!) {
 
 
 
-//Question of the Day
+//Question of the Day ✅
 query questionOfToday {
   activeDailyCodingChallengeQuestion {
     date
@@ -223,7 +223,7 @@ query questionOfToday {
 
 
 
-//Histogram 
+//Histogram ✅
 query contestRatingHistogram {
   contestRatingHistogram {
     userCount
