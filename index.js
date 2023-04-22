@@ -1,14 +1,14 @@
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
-import { typeDefs } from "./schema";
-import { resolvers } from "./resolvers";
+import { typeDefs } from "./schema/index.js";
+import { resolvers } from "./resolvers/index.js";
 import dotenv from "dotenv";
 
 const PORT = process.env.PORT || 4000;
 
 dotenv.config();
 
-const server = ApolloServer({ typeDefs, resolvers });
+const server = new ApolloServer({ typeDefs, resolvers });
 
 const main = async () => {
   const { url } = await startStandaloneServer(server, {
