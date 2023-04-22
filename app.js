@@ -5,13 +5,12 @@ import express from "express";
 import http from "http";
 import cors from "cors";
 import dotenv from "dotenv";
-import { users } from "./FakeData.js";
 import bodyParser from "body-parser";
 
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 4002;
+const PORT = process.env.PORT || 4000;
 
 const httpServer = http.createServer(app);
 

@@ -1,4 +1,3 @@
-import { colors } from "colors";
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 import { typeDefs } from "./schema";
@@ -11,9 +10,14 @@ dotenv.config();
 
 const server = ApolloServer({ typeDefs, resolvers });
 
-const { url } = await startStandaloneServer(server, {
-  context: async ({ req }) => ({ token: req.headers.token }),
-  listen: { port: PORT },
-});
+const main = async () => {
+  const { url } = await startStandaloneServer(server, {
+    context: async ({ req }) => ({ token: req.headers.token }),
+    listen: { port: PORT },
+  });
 
-console.log(`🚀 Server ready at ${PORT}`);
+  console.log(`🚀 Server ready at ${PORT}, ${url}`);
+  console.log(`Query at : ${"https://studio.apollographql.com/dev"}`);
+};
+
+main();
