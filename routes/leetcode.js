@@ -45,8 +45,6 @@ router.get("/top-100", async (req, res) => {
   const { skip, limit } = req.query;
   
   const variables = {
-    username: req.body.username,
-    limit: req.body.limit,
     skip: skip || 0,
     limit: limit || 50,
     categorySlug: '',

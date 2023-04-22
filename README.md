@@ -4,6 +4,8 @@ LeetCode API end points to access the details of a User.
 
 Following are the End points
 
+- List Routes
+  - /list-routes (GET)
 - User
   - user/ (POST)
   - user/contests (POST)
