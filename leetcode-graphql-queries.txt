@@ -52,7 +52,7 @@ query languageStats($username: String!) {
 
 
 
-//Skill Stats
+//Skill Stats ✅
 query skillStats($username: String!) {
   matchedUser(username: $username) {
     tagProblemCounts {
@@ -78,7 +78,7 @@ query skillStats($username: String!) {
 
 
 
-//User Contest Ranking
+//User Contest Ranking ✅
 query userContestRankingInfo($username: String!) {
   userContestRanking(username: $username) {
     attendedContestsCount

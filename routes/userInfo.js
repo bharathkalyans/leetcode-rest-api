@@ -1,7 +1,7 @@
 import express from "express";
-export const router = express.Router();
+import fetchGraphQLData from "../utils/utility.js";
 
-const URL = "https://leetcode.com/graphql";
+export const router = express.Router();
 
 // User Profile
 router.post("/", async (req, res) => {
@@ -44,25 +44,8 @@ query userPublicProfile($username: String!) {
     username: req.body.username,
   };
 
-  const options = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      query,
-      variables,
-    }),
-  };
-
-  try {
-    const response = await fetch(URL, options);
-    const data = await response.json();
-    // console.log(data);
-    res.send(data);
-  } catch (error) {
-    console.error(error);
-  }
+  const data = await fetchGraphQLData(query, variables);
+  res.send(data);
 });
 
 //User Contest Rating
@@ -99,25 +82,8 @@ router.post("/contests", async (req, res) => {
     username: req.body.username,
   };
 
-  const options = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      query,
-      variables,
-    }),
-  };
-
-  try {
-    const response = await fetch(URL, options);
-    const data = await response.json();
-    // console.log(data);
-    res.send(data);
-  } catch (error) {
-    console.error(error);
-  }
+  const data = await fetchGraphQLData(query, variables);
+  res.send(data);
 });
 
 //Problems Solved
@@ -147,25 +113,8 @@ router.post("/solved", async (req, res) => {
     username: req.body.username,
   };
 
-  const options = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      query,
-      variables,
-    }),
-  };
-
-  try {
-    const response = await fetch(URL, options);
-    const data = await response.json();
-    // console.log(data);
-    res.send(data);
-  } catch (error) {
-    console.error(error);
-  }
+  const data = await fetchGraphQLData(query, variables);
+  res.send(data);
 });
 
 //Badges
@@ -203,25 +152,8 @@ router.post("/badges", async (req, res) => {
     username: req.body.username,
   };
 
-  const options = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      query,
-      variables,
-    }),
-  };
-
-  try {
-    const response = await fetch(URL, options);
-    const data = await response.json();
-    // console.log(data);
-    res.send(data);
-  } catch (error) {
-    console.error(error);
-  }
+  const data = await fetchGraphQLData(query, variables);
+  res.send(data);
 });
 
 //Active Years
@@ -250,25 +182,8 @@ router.post("/activeyears", async (req, res) => {
     username: req.body.username,
   };
 
-  const options = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      query,
-      variables,
-    }),
-  };
-
-  try {
-    const response = await fetch(URL, options);
-    const data = await response.json();
-    // console.log(data);
-    res.send(data);
-  } catch (error) {
-    console.error(error);
-  }
+  const data = await fetchGraphQLData(query, variables);
+  res.send(data);
 });
 
 //Recent Submissions
@@ -289,27 +204,8 @@ router.post("/submissions", async (req, res) => {
     limit: req.body.limit,
   };
 
-  const options = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      query,
-      variables,
-    }),
-  };
-
-  try {
-    const response = await fetch(URL, options);
-    const data = await response.json();
-    // console.log(data);
-    res.send(data);
-  } catch (error) {
-    console.error(error);
-  }
+  const data = await fetchGraphQLData(query, variables);
+  res.send(data);
 });
-
-
 
 export default router;
