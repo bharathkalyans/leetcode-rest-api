@@ -1,7 +1,12 @@
+import { users } from "../FakeData.js";
+
 export const resolvers = {
   Query: {
     apiStatus: () => {
       return { status: "The API is working!", code: 404 };
+    },
+    myUsers: () => {
+      return users;
     },
   },
   Mutation: {

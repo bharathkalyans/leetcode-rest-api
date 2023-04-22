@@ -1,11 +1,18 @@
 export const typeDefs = `#graphql
   type Query {
     apiStatus: ApiStatus
+    myUsers: [MyUser]
   }
 
   type ApiStatus {
     status: String
     code: Int
+  }
+
+  type MyUser {
+    name: String
+    age: Int
+    married: Boolean
   }
 
   type Mutation {
