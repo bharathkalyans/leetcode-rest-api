@@ -12,7 +12,7 @@ import {
 export const router = express.Router();
 
 // User Profile
-router.post("/", async (req, res) => {
+router.get("/", async (req, res) => {
   const query = userProfileQuery;
 
   const variables = {
@@ -24,7 +24,7 @@ router.post("/", async (req, res) => {
 });
 
 //User Contest Rating
-router.post("/contests", async (req, res) => {
+router.get("/contests", async (req, res) => {
   const query = userRatingQuery;
 
   const variables = {
@@ -36,7 +36,7 @@ router.post("/contests", async (req, res) => {
 });
 
 //Problems Solved
-router.post("/solved", async (req, res) => {
+router.get("/solved", async (req, res) => {
   const query = problemsSolvedQuery;
 
   const variables = {
@@ -48,7 +48,7 @@ router.post("/solved", async (req, res) => {
 });
 
 //Badges
-router.post("/badges", async (req, res) => {
+router.get("/badges", async (req, res) => {
   const query = userBadgesQuery;
 
   const variables = {
@@ -60,7 +60,7 @@ router.post("/badges", async (req, res) => {
 });
 
 //Active Years
-router.post("/activeyears", async (req, res) => {
+router.get("/activeyears", async (req, res) => {
   const query = activeYearsQuery;
 
   const variables = {
@@ -72,7 +72,7 @@ router.post("/activeyears", async (req, res) => {
 });
 
 //Recent Submissions
-router.post("/submissions", async (req, res) => {
+router.get("/submissions", async (req, res) => {
   const query = recentSubmissionsQuery;
 
   const variables = {
