@@ -12,11 +12,11 @@ import {
 export const router = express.Router();
 
 // User Profile
-router.get("/", async (req, res) => {
+router.get("/:username", async (req, res) => {
   const query = userProfileQuery;
-
+  const { username } = req.params;
   const variables = {
-    username: req.body.username,
+    username: username,
   };
 
   const data = await fetchGraphQLData(query, variables);
@@ -24,11 +24,11 @@ router.get("/", async (req, res) => {
 });
 
 //User Contest Rating
-router.get("/contests", async (req, res) => {
+router.get("/:username/contests", async (req, res) => {
   const query = userRatingQuery;
-
+  const { username } = req.params;
   const variables = {
-    username: req.body.username,
+    username: username,
   };
 
   const data = await fetchGraphQLData(query, variables);
@@ -36,11 +36,11 @@ router.get("/contests", async (req, res) => {
 });
 
 //Problems Solved
-router.get("/solved", async (req, res) => {
+router.get("/:username/solved", async (req, res) => {
   const query = problemsSolvedQuery;
-
+  const { username } = req.params;
   const variables = {
-    username: req.body.username,
+    username: username,
   };
 
   const data = await fetchGraphQLData(query, variables);
@@ -48,11 +48,11 @@ router.get("/solved", async (req, res) => {
 });
 
 //Badges
-router.get("/badges", async (req, res) => {
+router.get("/:username/badges", async (req, res) => {
   const query = userBadgesQuery;
-
+  const { username } = req.params;
   const variables = {
-    username: req.body.username,
+    username: username,
   };
 
   const data = await fetchGraphQLData(query, variables);
@@ -60,11 +60,11 @@ router.get("/badges", async (req, res) => {
 });
 
 //Active Years
-router.get("/activeyears", async (req, res) => {
+router.get("/:username/activeyears", async (req, res) => {
   const query = activeYearsQuery;
-
+  const { username } = req.params;
   const variables = {
-    username: req.body.username,
+    username: username,
   };
 
   const data = await fetchGraphQLData(query, variables);
@@ -72,12 +72,13 @@ router.get("/activeyears", async (req, res) => {
 });
 
 //Recent Submissions
-router.get("/submissions", async (req, res) => {
+router.get("/:username/submissions", async (req, res) => {
   const query = recentSubmissionsQuery;
-
+  const { username } = req.params;
+  const { limit } = req.query;
   const variables = {
-    username: req.body.username,
-    limit: req.body.limit,
+    username: username,
+    limit: limit,
   };
 
   const data = await fetchGraphQLData(query, variables);
