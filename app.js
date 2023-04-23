@@ -5,7 +5,7 @@ import bodyParser from "body-parser";
 import userRouter from "./routes/userInfo.js";
 import leetcodeRouter from "./routes/leetcode.js";
 import errorRouter from "./routes/error.js";
-import configMainRoutes, { mainRouter } from "./routes/mainRoutes.js";
+import configMainRoutes, { mainRouter } from "./routes/main.js";
 
 dotenv.config();
 
@@ -19,11 +19,11 @@ app.use(cors(), bodyParser.json());
 app.use("/leetcode", leetcodeRouter);
 
 app.use("/user", userRouter);
+
 app.use("/", mainRouter);
 
-// this line should be mapped to end.
 app.use("*", errorRouter);
 
 app.listen(PORT, () => {
-	console.log(`🚀 Server is started at PORT : ${PORT}`);
+  console.log(`🚀 Server is started at PORT : ${PORT}`);
 });
