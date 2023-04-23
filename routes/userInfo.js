@@ -17,7 +17,7 @@ router.get("/:username", async (req, res) => {
   const { username } = req.params;
 
   const data = await fetchGraphQLData(query, { username });
-  res.send(data);
+  res.json(data);
 });
 
 //User Contest Rating
@@ -26,7 +26,7 @@ router.get("/:username/contests", async (req, res) => {
   const { username } = req.params;
 
   const data = await fetchGraphQLData(query, { username });
-  res.send(data);
+  res.json(data);
 });
 
 //Problems Solved
@@ -35,7 +35,7 @@ router.get("/:username/solved", async (req, res) => {
   const { username } = req.params;
 
   const data = await fetchGraphQLData(query, { username });
-  res.send(data);
+  res.json(data);
 });
 
 //Badges
@@ -44,7 +44,7 @@ router.get("/:username/badges", async (req, res) => {
   const { username } = req.params;
 
   const data = await fetchGraphQLData(query, { username });
-  res.send(data);
+  res.json(data);
 });
 
 //Active Years
@@ -53,7 +53,7 @@ router.get("/:username/active-years", async (req, res) => {
   const { username } = req.params;
 
   const data = await fetchGraphQLData(query, { username });
-  res.send(data);
+  res.json(data);
 });
 
 //Recent Submissions
@@ -64,7 +64,7 @@ router.get("/:username/submissions", async (req, res) => {
   if (!limit) limit = 3;
 
   const data = await fetchGraphQLData(query, { username, limit });
-  res.send(data);
+  res.json(data);
 });
 
 export default router;
