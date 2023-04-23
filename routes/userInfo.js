@@ -15,11 +15,8 @@ export const router = express.Router();
 router.get("/:username", async (req, res) => {
   const query = userProfileQuery;
   const { username } = req.params;
-  const variables = {
-    username: username,
-  };
 
-  const data = await fetchGraphQLData(query, variables);
+  const data = await fetchGraphQLData(query, { username });
   res.send(data);
 });
 
@@ -27,11 +24,8 @@ router.get("/:username", async (req, res) => {
 router.get("/:username/contests", async (req, res) => {
   const query = userRatingQuery;
   const { username } = req.params;
-  const variables = {
-    username: username,
-  };
 
-  const data = await fetchGraphQLData(query, variables);
+  const data = await fetchGraphQLData(query, { username });
   res.send(data);
 });
 
@@ -39,11 +33,8 @@ router.get("/:username/contests", async (req, res) => {
 router.get("/:username/solved", async (req, res) => {
   const query = problemsSolvedQuery;
   const { username } = req.params;
-  const variables = {
-    username: username,
-  };
 
-  const data = await fetchGraphQLData(query, variables);
+  const data = await fetchGraphQLData(query, { username });
   res.send(data);
 });
 
@@ -51,23 +42,17 @@ router.get("/:username/solved", async (req, res) => {
 router.get("/:username/badges", async (req, res) => {
   const query = userBadgesQuery;
   const { username } = req.params;
-  const variables = {
-    username: username,
-  };
 
-  const data = await fetchGraphQLData(query, variables);
+  const data = await fetchGraphQLData(query, { username });
   res.send(data);
 });
 
 //Active Years
-router.get("/:username/activeyears", async (req, res) => {
+router.get("/:username/active-years", async (req, res) => {
   const query = activeYearsQuery;
   const { username } = req.params;
-  const variables = {
-    username: username,
-  };
 
-  const data = await fetchGraphQLData(query, variables);
+  const data = await fetchGraphQLData(query, { username });
   res.send(data);
 });
 
@@ -75,13 +60,10 @@ router.get("/:username/activeyears", async (req, res) => {
 router.get("/:username/submissions", async (req, res) => {
   const query = recentSubmissionsQuery;
   const { username } = req.params;
-  const { limit } = req.query;
-  const variables = {
-    username: username,
-    limit: limit,
-  };
+  let { limit } = req.query;
+  if (!limit) limit = 3;
 
-  const data = await fetchGraphQLData(query, variables);
+  const data = await fetchGraphQLData(query, { username, limit });
   res.send(data);
 });
 
