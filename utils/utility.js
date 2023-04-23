@@ -1,4 +1,5 @@
 import { BASE_URL } from "../utils/constants.js";
+import fetch from "node-fetch";
 
 const URL = BASE_URL;
 
