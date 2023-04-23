@@ -51,8 +51,8 @@ router.get("/:username/badges", async (req, res) => {
 router.get("/:username/active-years", async (req, res) => {
   const query = activeYearsQuery;
   const { username } = req.params;
-
-  const data = await fetchGraphQLData(query, { username });
+  const { year } = req.query;
+  const data = await fetchGraphQLData(query, { username, year });
   res.json(data);
 });
 
