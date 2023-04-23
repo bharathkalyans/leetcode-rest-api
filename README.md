@@ -1,5 +1,27 @@
 # LeetCode Public API 🚀
 
+## End Points
+LeetCode API access end points :
+
+- User
+  - GET  ``user/``
+  - GET ``user/<user-name>/contests``
+  - GET ``user/<user-name>/solved``
+  - GET ``user/<user-name>/badges``
+  - GET ``user/<user-name>/active-years``
+  - GET ``user/<user-name>/submissions``
+
+- Leetcode
+  - GET `leetcode/todays-question`
+    - limit: number [QUERY_PARAMS]
+    - username: string [QUERY_PARAMS]
+  - GET `leetcode/histogram`
+    - limit: number [QUERY_PARAMS]
+    - username: string [QUERY_PARAMS]
+  - GET `leetcode/top-100`
+    - limit: number [QUERY_PARAMS]
+    - skip: number [QUERY_PARAMS]
+
 
 ## Initialize
 
@@ -11,10 +33,10 @@
 Run the application using the below command
 
 ```
-nodemon app.js
+npm start
 ```
 
-- Visit `http://localhost:4000`
+- Visit `http://localhost:4000` for local server access.
 
 
 
@@ -36,31 +58,16 @@ nodemon app.js
 ```
 
 
-## End Points
-LeetCode API end points to access the details of a User.
 
-Following are the End points to be used locally only!! (Check above for the live end points!)
+## How to contribute?
+### What do you need to get started?
+#### Latest version of Node JS, idea of how a REST API works and a bit of googling skills 😉. 
+- All contributions are welcome 🙌🏼
+- Open an issue first, get yourself assigned before working on it and  describe changes made properly and attach supporting Snapshots in the PR. 
 
-- List Routes
-  - /list-routes (GET)
-- User
-    - POST  ``http://localhost:4000/user/`` 
-    - POST ``http://localhost:4000/user/contests`` 
-    - POST ``http://localhost:4000/user/solved`` 
-    - POST ``http://localhost:4000/user/badges`` 
-    - POST ``http://localhost:4000/user/activeyears``  
-    - POST ``http://localhost:4000/user/submissions``  
-    
-- Leetcode
-  - leetcode/todaysquestion (GET)
-      - limit: number (QUERY_PARAMS)
-      - username: string (QUERY_PARAMS)
-  - leetcode/histogram (GET)
-      - limit: number (QUERY_PARAMS)
-      - username: string (QUERY_PARAMS)
-  - leetcode/top-100 (GET)
-      - limit: number (QUERY_PARAMS)
-      - skip: number (QUERY_PARAMS)
-    - POST ``http://localhost:4000/leetcode/todaysquestion``  
-    - POST ``http://localhost:4000/leetcode/histogram``  
+## Contributors
+* <a href="https://github.com/bharathkalyans">**Bharath Kalyan S**</a> <br>
+* <a href="https://github.com/07prajwal2000">**Prajwal Aradhya**</a> <br>
 
+## Author
+<a href="https://github.com/bharathkalyans">**Bharath Kalyan S**</a> <br>
