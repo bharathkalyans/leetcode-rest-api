@@ -41,6 +41,8 @@ LeetCode API end points to access the details of a User.
 
 Following are the End points to be used locally only!! (Check above for the live end points!)
 
+- List Routes
+  - /list-routes (GET)
 - User
     - POST  ``http://localhost:4000/user/`` 
     - POST ``http://localhost:4000/user/contests`` 
@@ -48,8 +50,17 @@ Following are the End points to be used locally only!! (Check above for the live
     - POST ``http://localhost:4000/user/badges`` 
     - POST ``http://localhost:4000/user/activeyears``  
     - POST ``http://localhost:4000/user/submissions``  
+    
 - Leetcode
+  - leetcode/todaysquestion (GET)
+      - limit: number (QUERY_PARAMS)
+      - username: string (QUERY_PARAMS)
+  - leetcode/histogram (GET)
+      - limit: number (QUERY_PARAMS)
+      - username: string (QUERY_PARAMS)
+  - leetcode/top-100 (GET)
+      - limit: number (QUERY_PARAMS)
+      - skip: number (QUERY_PARAMS)
     - POST ``http://localhost:4000/leetcode/todaysquestion``  
     - POST ``http://localhost:4000/leetcode/histogram``  
 
-All are POST requests ❗️
