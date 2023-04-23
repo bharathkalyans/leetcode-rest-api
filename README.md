@@ -9,6 +9,9 @@
 
 LeetCode API access end points :
 
+- Main
+  - Get `/list-endpoints`
+
 - User
 
   - GET `user/`
@@ -21,6 +24,7 @@ LeetCode API access end points :
     - limit: number [QUERY_PARAMS]
 
 - Leetcode
+
   - GET `leetcode/todays-question`
   - GET `leetcode/histogram`
   - GET `leetcode/top-100`
@@ -84,11 +88,14 @@ npm start
   /routes
     /leetcode.js
     /userInfo.js
+    /error.js
+    /mainRoutes.js
   /queries
     /leetcodeGraphqlQueries.js
     /userGraphqlQueries.js
   /utils
     /constants.js
+    /listRoutes.js
     /utility.js
 
 ```
