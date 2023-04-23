@@ -1,9 +1,5 @@
 import path from "path";
 
-// const defaultOptions = {
-//   prefix: "",
-// };
-
 const getPathFromRegex = (regexp) => {
   return regexp
     .toString()
@@ -79,7 +75,7 @@ export const allRoutes = (app) =>
     .map((x) => {
       return {
         method: x.method,
-        path: x.path.replaceAll("\\", "/"),
+        path: x.path.replace(/\\/g, "/"),
       };
     })
     .filter((x) => x.path != "(.*)/");
