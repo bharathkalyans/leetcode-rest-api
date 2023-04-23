@@ -15,7 +15,7 @@ router.get("/histogram", async (req, res) => {
   const { username, limit } = req.query;
 
   const data = await fetchGraphQLData(query, { username, limit });
-  res.send(data);
+  res.json(data);
 });
 
 // Question of the Day
@@ -25,7 +25,7 @@ router.get("/todays-question", async (req, res) => {
   const { username = "", limit = 50 } = req.query;
 
   const data = await fetchGraphQLData(query, { username, limit });
-  res.send(data);
+  res.json(data);
 });
 
 // Top 100 questions
@@ -40,7 +40,7 @@ router.get("/top-100", async (req, res) => {
     categorySlug,
     filters,
   });
-  res.send(data);
+  res.json(data);
 });
 
 export default router;
