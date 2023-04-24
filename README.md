@@ -9,9 +9,6 @@
 
 LeetCode API access end points :
 
-- Main
-  - Get `/list-endpoints`
-
 - User
 
   - GET `user/`
