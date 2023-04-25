@@ -1,64 +1,7 @@
 # LeetCode Public API 🚀
 
-## End Points
+* Get access to the live api @ https://rapidapi.com/bharathkalyans/api/leetcode-api
 
-### Live URL's
-
-- https://leetcode-public-api.onrender.com/
-- https://leetcode-public-api.cyclic.app/
-
-LeetCode API access end points :
-
-- User
-
-  - GET `user/`
-  - GET `user/<user-name>/contests`
-  - GET `user/<user-name>/solved`
-  - GET `user/<user-name>/badges`
-  - GET `user/<user-name>/active-years`
-    - year: number [QUERY_PARAMS]
-  - GET `user/<user-name>/submissions`
-    - limit: number [QUERY_PARAMS]
-
-- Leetcode
-
-  - GET `leetcode/todays-question`
-  - GET `leetcode/histogram`
-  - GET `leetcode/top-100`
-    - limit: number [QUERY_PARAMS]
-    - skip: number [QUERY_PARAMS]
-
-Examples
-
-- User
-  - <a href="https://leetcode-public-api.cyclic.app/user/bharathkalyans">
-    https://leetcode-public-api.cyclic.app/user/bharathkalyans
-      </a>
-  - <a href="https://leetcode-public-api.cyclic.app/user/bharathkalyans/contests">
-    https://leetcode-public-api.cyclic.app/user/bharathkalyans/contests
-      </a>
-  - <a href="https://leetcode-public-api.cyclic.app/user/bharathkalyans/solved">
-    https://leetcode-public-api.cyclic.app/user/bharathkalyans/solved
-      </a>
-  - <a href="https://leetcode-public-api.cyclic.app/user/bharathkalyans/badges">
-    https://leetcode-public-api.cyclic.app/user/bharathkalyans/badges
-      </a>
-  - <a href="https://leetcode-public-api.cyclic.app/user/bharathkalyans/active-years">
-    https://leetcode-public-api.cyclic.app/user/bharathkalyans/active-years
-      </a>
-  - <a href="https://leetcode-public-api.cyclic.app/user/bharathkalyans/top-100">
-    https://leetcode-public-api.cyclic.app/user/bharathkalyans/submissions
-      </a>
-- Public
-  - <a href="https://leetcode-public-api.cyclic.app/leetcode/todays-question">
-    https://leetcode-public-api.cyclic.app/leetcode/todays-question
-      </a>
-  - <a href="https://leetcode-public-api.cyclic.app/leetcode/histogram">
-    https://leetcode-public-api.cyclic.app/leetcode/histogram
-      </a>
-  - <a href="https://leetcode-public-api.cyclic.app/leetcode/todays-question">
-    https://leetcode-public-api.cyclic.app/leetcode/top-100
-      </a>
 
 # Build ⚒️
 
@@ -81,7 +24,7 @@ npm start
 
 ```
 /.
-  /app.js
+   app.js
   /routes
     /leetcode.js
     /userInfo.js
@@ -99,7 +42,6 @@ npm start
 
 # Open Source Contribution 🎒
 
-## How to contribute?
 
 ### What do you need to get started?
 
