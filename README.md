@@ -1,14 +1,15 @@
 # LeetCode Public API 🚀
 
-* Get access to the live api @ https://rapidapi.com/bharathkalyans/api/leetcode-api
-
+* Get access to the live api 👉🏻 [Leetcode Rest API](https://bit.ly/leetcodeapi)
 
 # Build ⚒️
 
 ## Initialize
 
-- Clone the repository `https://github.com/bharathkalyans/leetcode-rest-api.git` using command `git clone https://github.com/bharathkalyans/leetcode-rest-api.git`
-- Open the terminal, navigate to the package.json directory and run the command `npm i` or `npm install` to install all the dependencies.
+- Clone the repository `https://github.com/bharathkalyans/leetcode-rest-api.git` using
+  command `git clone https://github.com/bharathkalyans/leetcode-rest-api.git`
+- Open the terminal, navigate to the package.json directory and run the command `npm i` or `npm install` to install all
+  the dependencies.
 
 ## Running the Application
 
@@ -42,13 +43,13 @@ npm start
 
 # Open Source Contribution 🎒
 
-
 ### What do you need to get started?
 
 #### Latest version of Node JS, idea of how a REST API works and a bit of googling skills 😉.
 
 - All contributions are welcome 🙌🏼
-- Open an issue first, get yourself assigned before working on it and describe changes made properly and attach supporting Snapshots in the PR.
+- Open an issue first, get yourself assigned before working on it and describe changes made properly and attach
+  supporting Snapshots in the PR.
 
 #### Contributors
 
@@ -58,9 +59,11 @@ npm start
 # Sponsor ❤️
 
 - Do consider sponsoring ❤️ us to Support this project so that we can cover the costs of the server.
-- You can also support this project by starring the repository, contributing through refactoring the code or updating the documentation as well.
+- You can also support this project by starring the repository, contributing through refactoring the code or updating
+  the documentation as well.
 
-If interested in sponsoring, visit the <a href="https://github.com/bharathkalyans">**Author's**</a> profile page to Sponsor directly.
+If interested in sponsoring, visit the <a href="https://github.com/bharathkalyans">**Author's**</a> profile page to
+Sponsor directly.
 <br>
 
 ## Thank you for visiting our page 😀
