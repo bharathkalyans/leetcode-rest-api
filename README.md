@@ -53,9 +53,15 @@ npm start
 
 #### Contributors
 
-- <a href="https://github.com/bharathkalyans">**Bharath Kalyan S**</a> ~ Author
+<!-- - <a href="https://github.com/bharathkalyans">**Bharath Kalyan S**</a> ~ Author
 - <a href="https://github.com/07prajwal2000">**Prajwal Aradhya**</a> <br>
+ -->
+ 
+ <a href="https://github.com/bharathkalyans/leetcode-rest-api/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=bharathkalyans/leetcode-rest-api" />
+</a>
 
+ 
 # Sponsor ❤️
 
 - Do consider sponsoring ❤️ us to Support this project so that we can cover the costs of the server.
